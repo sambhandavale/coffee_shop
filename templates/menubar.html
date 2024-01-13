@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="{% static 'menubar.css' %}">
+    {% block additional_css %}{% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Playfair+Display:ital,wght@1,500&family=Poppins&family=Spectral+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+<div class="menubar">
+    <div class="logo">
+        <a href="#" title="Home" aria-label="home" class="logo-home">
+            <img src="{% static 'home/images/logo.png' %}" alt="logo-home">
+        </a>
+    </div>
+    <div class="main-menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/home/" class="home tab">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#Drinks" class="drinks tab">
+                        Drinks
+                    </a>
+                </li>
+                <li>
+                    <a href="#Food" class="food tab">
+                        Food
+                    </a>
+                </li>
+                <li>
+                    <a href="/blog/" class="blog tab">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <button class="more">More
+                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                <path
+                                    d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z">
+                                </path>
+                            </svg>
+                    </button>
+                    <div class="drop-down-container animate__zoomIn">
+                        <div class="dropdown">
+                            <ul class="more-items">
+                                <li class="item">
+                                    <a class="item-title" href="/login/login">
+                                        <h3>Login</h3>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a class="item-title" href="/signup">
+                                        <h3>Sign-in</h3>
+                                    </a>
+                                </li>
+                                </ul>
+                            </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% block content %}{% endblock %}
+</body>
+</html>

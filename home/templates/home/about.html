@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+    <h1>About this website</h1>
+    <h2>Its users :</h2>
+    {% for user in users %}
+        <h1>{{ user.SRNO }}. {{ user.Name }}</h1>
+    {% endfor %}
+</body>
+</html>

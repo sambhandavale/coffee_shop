@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root{
+    --main-menu-height:64px;
+    --main-menu-background:#FFFFFF80;
+    --menu-font-color:#351919;
+    --link-hover-color:#F3EDC8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('/static/home/images/background-home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+
+.catch-phrase{
+    display:flex;
+    flex-direction: column;
+    margin-left:50px;
+}
+
+.phrase1-wrapper{
+    width: 424px;
+    height: 141px;
+}
+.phrase1-wrapper .phrase1{
+    position:relative;
+    width: 424px;
+    top: 0;
+    left: 0;
+    text-shadow: 8px 4px 0px #331b1bc9;
+    font-family: "Inter-ExtraBold", Helvetica;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 100px;
+    letter-spacing: 0;
+    line-height: normal;
+    z-index:1;
+}
+
+.phrase2-wrapper {
+    width: 372px;
+    height: 121px;
+}
+.phrase2-wrapper .phrase2 {
+    position:relative;
+    top: 0;
+    left: 0;
+    text-shadow: 8px 4px 0px #ffffff;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #331a1a;
+    font-size: 100px;
+    letter-spacing: 0;
+    line-height: normal;
+    z-index:3;
+}
+.image-wrapper .image {
+    position:absolute;
+    width: 390px;
+    height: 340px;
+    top: 100px;
+    left: 100px;
+    object-fit: cover;
+    z-index:2;
+}

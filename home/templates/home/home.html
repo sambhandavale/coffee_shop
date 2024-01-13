@@ -1,0 +1,16 @@
+{% extends 'menubar.html' %}
+{% load static %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+    <div class="catch-phrase">
+        <div class="phrase1-wrapper"><div class="phrase1">Caffeine</div></div>
+        <div class="phrase2-wrapper"><div class="phrase2">Dreams</div></div>
+    </div>
+    <div class="image-wrapper"><img class="image" src="{% static 'home/images/cup_of_coffee.png' %}"></div>
+</div>
+{% endblock %}

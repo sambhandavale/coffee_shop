@@ -1,0 +1,49 @@
+{% extends 'menubar.html' %}
+{% load static %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'login/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="signin-container">
+        <div class="signin-box">
+            <div class="box-1">
+                <div class="sign-in">
+                    <h3 class="login-header">SIGNIN</h3>
+                    <form action="/signup/sign/" method="post">
+                    {% csrf_token %}
+                    <div class="username">
+                    <input type="text" class="text" name="username" placeholder="  Enter Username">
+                </div>
+                    <div class="password">
+                    <input type="password" class="text" name="password" placeholder="  Enter Password">
+                </div>
+                    <div class="re_password">
+                    <input type="password" class="text" name="re_password" placeholder="  Re-Enter username">
+                </div>
+                    <input type="submit" value="Sign in" class="submit">
+                        {% if context.username and context.password %}
+                        <p>Successful Sign-in</p>
+                    {% elif context.username == 'Already present' %}
+                        <p>Account Already Present</p>
+                    {% elif context.username == 'Password not matching' %}
+                        <p>Password not Matching</p>
+                    {% else %}
+                        <p></p>
+                    {% endif %}
+                    </form>
+                </div>
+                <div class="box-or">
+                <div class="line"></div>
+                <div>OR</div>
+                <div class="line"></div>
+            </div>
+                <div class="login">
+                Already have an account?  <a href="/login/login">Log in</a>
+            </div>
+            </div>
+            <div class="box-2"></div>
+        </div>
+    </div>
+{% endblock %}
