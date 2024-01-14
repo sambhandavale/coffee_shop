@@ -4,16 +4,6 @@
     --container-background-color:#ffffff80;
     --box-1-background:#F3EDC8;
     --coffee-color:#351919;
-    --main-menu-height:64px;
-    --main-menu-background:#FFFFFF80;
-    --menu-font-color:#351919;
-    --link-hover-color:#F3EDC8;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
 }
 
 body{
