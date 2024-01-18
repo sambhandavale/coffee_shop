@@ -14,7 +14,7 @@
 }
 
 body{
-    background: url('/static/home/images/background-home.jpg') !important;
+    background: url('/static/home/images/background-home.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Poppins', sans-serif;

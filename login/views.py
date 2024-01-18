@@ -1,8 +1,6 @@
 import json
 from django.shortcuts import render
 from .models import UserData
-import pandas as pd
-import os
 
 
 def signup(request):
@@ -37,18 +35,13 @@ def login_user(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         if username and password:
-            og_path = os.getcwd()
-            parent_path = os.path.dirname(og_path)
-            csv_file_path = parent_path + r'\coffee_shop\user_data.csv'
-            df = pd.read_csv(csv_file_path)
-            if username in list(df.usernames):
-                index = df[df['usernames'] == username].index[0]  # to find the index of the row
-                if str(df.loc[index, 'passwords']) == str(password):
+            try:
+                user = UserData.objects.get(username=username)
+                if user.password == password:
                     return render(request, 'login/login.html', {'context': {'username': 'Match', 'password': ''}})
                 else:
                     return render(request, 'login/login.html', {'context': {'username': 'Not Match', 'password': ''}})
-            else:
-                return render(request, 'login/login.html',
-                              {'context': {'username': 'Invalid Username', 'password': ''}})
+            except UserData.DoesNotExist:
+                return render(request, 'login/login.html', {'context': {'username': 'Invalid Username', 'password': ''}})
     return render(request, 'login/login.html', {'context': {'username': '', 'password': ''}})
 
