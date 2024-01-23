@@ -128,4 +128,6 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'web-home'
+LOGIN_REDIRECT_URL = 'redirect_to_default_profile'
+
+LOGIN_URL = '/register/login/' # when trying to access profile page without a login
