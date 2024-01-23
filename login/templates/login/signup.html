@@ -1,6 +1,10 @@
 {% extends 'menubar.html' %}
 {% load static %}
 
+{% block additional_title %}
+    <title>Sign up</title>
+{% endblock %}
+
 {% block additional_css %}
     <link rel="stylesheet" href="{% static 'login/signup.css' %}">
 {% endblock %}
@@ -11,7 +15,7 @@
             <div class="box-1">
                 <div class="sign-in">
                     <h3 class="login-header">SIGNIN</h3>
-                    <form action="/signup/sign/" method="post">
+                    <form action="{% url 'signup' %}" method="post">
                     {% csrf_token %}
                     <div class="username">
                     <input type="text" class="text" name="username" placeholder="  Enter Username">
@@ -23,15 +27,13 @@
                     <input type="password" class="text" name="re_password" placeholder="  Re-Enter Password">
                 </div>
                     <input type="submit" value="Sign in" class="submit">
-                        {% if context.username and context.password %}
-                        <p>Successful Sign-in</p>
-                    {% elif context.username == 'Already present' %}
+                        {% if context.username == 'Already present' %}
                         <p>Account Already Present</p>
-                    {% elif context.username == 'Password not matching' %}
+                        {% elif context.username == 'Password not matching' %}
                         <p>Password not Matching</p>
-                    {% else %}
+                        {% else %}
                         <p></p>
-                    {% endif %}
+                        {% endif %}
                     </form>
                 </div>
                 <div class="box-or">
@@ -40,7 +42,7 @@
                 <div class="line"></div>
             </div>
                 <div class="login">
-                Already have an account?  <a href="/login/login">Log in</a>
+                Already have an account?  <a href="/register/login">Log in</a>
             </div>
             </div>
             <div class="box-2"></div>

@@ -129,4 +129,33 @@ body{
     text-decoration:underline;
 }
 
+.signin-box .box-1 .signin-success{
+    padding: 10px;
+    background: #37B5B6;
+    border-radius: 5px;
+    top: 5px;
+    position: relative;
+    color: white;
+}
+
+/* for logout page*/
+
+.login_again{
+    padding: 10px;
+    background: #37B5B6;
+    border-radius: 5px;
+    top: 5px;
+    position: relative;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.login_again a{
+    text-decoration:none;
+}
+
+/* for logout page*/
+
 /*------------------------Sign in box----------------------*/

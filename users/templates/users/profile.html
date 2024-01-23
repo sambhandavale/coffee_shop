@@ -1,0 +1,23 @@
+{% extends 'menubar.html' %}
+{% load static %}
+
+{% block additional_title %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'users/users.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-box">
+        <div class="upper-part">
+            <img class="profile-image" src="{{ user.image.url }}" alt="Not found">
+            <div class="username">{{ user.user.username }}</div>
+            <div class="email">{{ user.user.email }}</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

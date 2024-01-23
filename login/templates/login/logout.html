@@ -1,0 +1,16 @@
+{% extends 'menubar.html' %}
+{% load static %}
+
+{% block additional_title %}
+    <title>Logout</title>
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'login/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="login_again"><!-- ignore the class name -->
+        You are logged out <a href="/register/login"> Login again </a>
+    </div>
+{% endblock %}

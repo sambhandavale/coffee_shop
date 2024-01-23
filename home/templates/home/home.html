@@ -1,6 +1,10 @@
 {% extends 'menubar.html' %}
 {% load static %}
 
+{% block additional_title %}
+    <title>Home</title>
+{% endblock %}
+
 {% block additional_css %}
     <link rel="stylesheet" href="{% static 'home/home.css' %}">
 {% endblock %}

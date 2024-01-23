@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blogs</title>
+    {% block additional_title %}{% endblock %}
     <link rel="stylesheet" href="{% static 'menubar.css' %}">
     {% block additional_css %}{% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,7 @@
                         Reviews
                     </a>
                 </li>
+                {% if user.is_authenticated %}
                 <li>
                     <button class="more">More
                     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
@@ -53,12 +54,38 @@
                         <div class="dropdown">
                             <ul class="more-items">
                                 <li class="item">
-                                    <a class="item-title" href="/login/login">
+                                    <a class="item-title" href="/profile">
+                                        <h3>Profile</h3>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a class="item-title" href="/logout">
+                                        <h3>Logout</h3>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                {% else %}
+                <li>
+                    <button class="more">More
+                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                <path
+                                    d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z">
+                                </path>
+                            </svg>
+                    </button>
+                    <div class="drop-down-container animate__zoomIn">
+                        <div class="dropdown">
+                            <ul class="more-items">
+                                <li class="item">
+                                    <a class="item-title" href="/register/login">
                                         <h3>Login</h3>
                                     </a>
                                 </li>
                                 <li class="item">
-                                    <a class="item-title" href="/signup">
+                                    <a class="item-title" href="/register/signup">
                                         <h3>Sign-in</h3>
                                     </a>
                                 </li>
@@ -66,6 +93,7 @@
                             </div>
                     </div>
                 </li>
+                {% endif %}
             </ul>
         </nav>
     </div>

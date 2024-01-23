@@ -1,6 +1,10 @@
 {% extends 'menubar.html' %}
 {% load static %}
 
+{% block additional_title %}
+    <title>Login</title>
+{% endblock %}
+
 {% block additional_css %}
     <link rel="stylesheet" href="{% static 'login/signup.css' %}">
 {% endblock %}
@@ -9,9 +13,14 @@
     <div class="signin-container">
         <div class="signin-box">
             <div class="box-1">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="signin-success">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
                 <div class="sign-in login">
                     <h3 class="login-header">Login</h3>
-                    <form action="/login/log/" method="post">
+                    <form action="{% url 'login' %}" method="post">
                         {% csrf_token %}
                         <div class="username">
                             <input type="text" class="text" name="username" placeholder="  Enter Username">
@@ -22,8 +31,6 @@
                         <input type="submit" value="Login" class="submit">
                         {% if context.username == 'Invalid Username' %}
                             <p>Invalid Username</p>
-                        {% elif context.username == 'Match' %}
-                            <p>Welcome User</p>
                         {% elif context.username == 'Not Match' %}
                             <p>Incorrect Password</p>
                         {% else %}
@@ -37,7 +44,7 @@
                 <div class="line"></div>
             </div>
                 <div class="login">
-                Not have an Account  <a href="/signup">Sign In</a>
+                Not have an Account  <a href="/register">Sign In</a>
             </div>
             </div>
             <div class="box-2"></div>
