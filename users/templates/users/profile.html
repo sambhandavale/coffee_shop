@@ -14,8 +14,10 @@
     <div class="profile-box">
         <div class="upper-part">
             <img class="profile-image" src="{{ user.image.url }}" alt="Not found">
-            <div class="username">{{ user.user.username }}</div>
-            <div class="email">{{ user.user.email }}</div>
+            <div class="name-email">
+                <div class="username">{{ user.user.username }}</div>
+                <div class="email">{{ user.user.email }}</div>
+            </div>
         </div>
     </div>
 </div>

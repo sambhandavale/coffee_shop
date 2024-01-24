@@ -1,3 +1,11 @@
+body{
+    background: url('./images/background-home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+}
+
 .profile-container{
     width:100%;
     height:100%;
@@ -19,12 +27,26 @@
 }
 
 .profile-box .upper-part{
-
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px;
 }
 
 .profile-box .upper-part .profile-image{
-    width:200px;
-    height:200px;
+    width:250px;
+    height:250px;
     border-radius: 50%;
     object-fit: cover;
+    border: 10px solid white;
+}
+
+.profile-box .upper-part .name-email{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.profile-box .upper-part .username{
+    font-size:2em;
 }

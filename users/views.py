@@ -5,7 +5,11 @@ from django.shortcuts import redirect
 
 def redirect_to_default_profile(request):
     default_username = request.user.username
-    return redirect('view_profile', username=default_username)
+    if default_username:
+        return redirect('view_profile', username=default_username)
+    else:
+        # Handle the case where the user has no username
+        return render(request, 'login/login.html')
 
 
 @login_required
