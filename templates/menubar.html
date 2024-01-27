@@ -41,14 +41,14 @@
                         Reviews
                     </a>
                 </li>
+                {% if request.user.is_authenticated %}
                 <li>
-                    <a href="/profile" class="blog tab">
+                    <a href="/profile/" class="blog tab">
                         Profile
                     </a>
                 </li>
-                {% if request.user.is_authenticated %}
                 <li>
-                    <a href="/logout" class="blog tab">
+                    <a href="/logout/" class="blog tab">
                         Logout
                     </a>
                 </li>

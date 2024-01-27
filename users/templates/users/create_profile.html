@@ -1,0 +1,43 @@
+{% extends 'menubar.html' %}
+{% load static %}
+
+{% block additional_title %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'users/users.css' %}">
+    <link rel="stylesheet" href="{% static 'users/create_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-box">
+        <div class="name-email">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="upper-part">
+                    <label for="profile-image" class="upload-button">
+                        +
+                    </label>
+                    <input type="file" id="profile-image" class="profile-image" name="profile-image" accept="image/*">
+                </div>
+                <div class="f-name">
+                    <label>First Name  </label>
+                    <input type="text" class="text inp" name="first-name" placeholder="  Enter First name">
+                </div>
+                <div class="l-name">
+                    <label>Last Name  </label>
+                    <input type="text" class="text inp" name="last-name" placeholder="  Enter Last name">
+                </div>
+                <div class="email">
+                    <label>Email  </label>
+                    <input type="email" class="text inp" name="email" placeholder="  Enter Email">
+                </div>
+                <input type="submit" value="Submit" class="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -10,12 +10,15 @@
 {% endblock %}
 
 {% block content %}
+{% if message %}
+    <h1>Successful</h1>
+{% endif %}
 <div class="profile-container">
     <div class="profile-box">
         <div class="upper-part">
             <img class="profile-image" src="{{ user.image.url }}" alt="Not found">
             <div class="name-email">
-                <div class="username">{{ user.user.username }}</div>
+                <div class="username">{{ user.user.first_name }} {{ user.user.last_name }}</div>
                 <div class="email">{{ user.user.email }}</div>
             </div>
         </div>

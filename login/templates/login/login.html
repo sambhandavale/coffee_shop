@@ -13,11 +13,6 @@
     <div class="signin-container">
         <div class="signin-box">
             <div class="box-1">
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="signin-success">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
                 <div class="sign-in login">
                     <h3 class="login-header">Login</h3>
                     <form action="{% url 'login' %}" method="post">
