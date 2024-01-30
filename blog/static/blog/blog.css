@@ -5,7 +5,6 @@
 
 .blog_container{
     width: 100vw;
-    height: 100vh;
     display: flex;
     color: var(--link-hover-color); /* inherited from menubar.css */
     align-items: center;
@@ -61,6 +60,100 @@
     justify-content: space-evenly;
     border-radius:0 0 10px 10px;
 }
-.blog_wrapper .main_content .title,.content{
+.blog_wrapper .main_content .content{
     margin:0 0 0 12px;
+    font-size:2em;
+}
+
+.review-box{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    height:300px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+}
+
+.review-box .review{
+    width:100%;
+    height:250px;
+    background: linear-gradient(145deg, rgb(217, 217, 217) 0%, rgba(217, 217, 217, 0) 97.82%);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-box .review form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.review-box .review .inp{
+    width:1500px;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid white;
+    margin-top:30px;
+}
+
+.review-box .review .text{
+    color:var(--content-bottom-background);
+    font-size:1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.review-box .review .text::placeholder {
+    color:#F3EDC8 ; /* or  var(--link-hover-color)*/
+    font-family: 'Poppins', sans-serif;
+}
+
+.review-box .review .text:focus {
+    outline: none;
+}
+
+.review-box .review form .submit {
+    width: 260px;
+    height: 30px;
+    background: var(--link-hover-color);
+    color: var(--menu-font-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.review-box .review form .submit:hover{
+    width: 260px;
+    height: 30px;
+    background: var(--menu-font-color);
+    color: var(--link-hover-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.review-box .review .not_authenticated{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.review-box .review .not_authenticated a{
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--link-hover-color);
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--menu-font-color);
+}
+
+.review-box .review .not_authenticated h2{
+    color:var(--menu-font-color);
 }

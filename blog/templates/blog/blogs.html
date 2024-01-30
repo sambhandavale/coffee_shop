@@ -10,18 +10,33 @@
     {% for post in post %}
     <div class="blog_wrapper">
         <div class="blog_top">
-            <p class="user_name">{{ post.author }}</p>
+            <p class="user_name">{{ post.author.first_name }} {{ post.author.last_name }}</p>
             <p class="date">{{ post.date_posted|date:"F d, Y" }}</p>
         </div>
         <div class="line_container">
             <div class="line"></div>
         </div>
         <div class="main_content">
-            <h1 class="title">{{ post.title }}</h1>
             <p class="content">{{ post.content }}</p>
         </div>
     </div>
     {% endfor %}
 </div>
-
+<div class="review-box">
+    <h1>Write your Review</h1>
+    <div class="review">
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'write_review' %}" method="post">
+            {% csrf_token %}
+            <input type="text" class="text inp" name="review" placeholder="Write Your Review Here">
+            <input type="submit" value="Submit" class="submit">
+        </form>
+        {% else %}
+        <div class="not_authenticated">
+            <h2>Login to add a Review</h2>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

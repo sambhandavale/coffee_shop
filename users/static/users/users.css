@@ -1,4 +1,5 @@
 body{
+    background: url('/static/users/images/background-profile.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Poppins', sans-serif;
@@ -48,4 +49,9 @@ body{
 
 .profile-box .upper-part .username{
     font-size:2em;
+}
+
+.profile-box .lower-part{
+    display:inline-block;
+    padding: 20px;
 }
