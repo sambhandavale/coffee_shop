@@ -8,9 +8,15 @@
 {% block additional_css %}
     <link rel="stylesheet" href="{% static 'users/users.css' %}">
     <link rel="stylesheet" href="{% static 'users/create_profile.css' %}">
+    <link rel="stylesheet" href="{% static 'login/signup.css' %}">
 {% endblock %}
 
 {% block content %}
+{% if no_of_logins > 0 %}
+    <div class="login_again" style="position:absolute;top:100px;">
+        <h3>You can just input the changes in the field u want and keep the rest blank if no change</h3>
+    </div>
+{% endif %}
 <div class="profile-container">
     <div class="profile-box">
         <div class="name-email">

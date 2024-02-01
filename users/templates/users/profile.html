@@ -20,6 +20,7 @@
             <div class="name-email">
                 <div class="username">{{ user.user.first_name }} {{ user.user.last_name }}</div>
                 <div class="email">{{ user.user.email }}</div>
+                <div class="edit-profile"><a href="{% url 'create_profile' %}">Edit Profile</a></div>
             </div>
         </div>
         <div class="lower-part">

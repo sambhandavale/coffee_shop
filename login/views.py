@@ -3,6 +3,7 @@ from django.contrib.auth.hashers import check_password, make_password
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from users.models import Profile
 
 def signup(request):
     if request.method == 'POST':
@@ -31,6 +32,12 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            try:
+                profile = Profile.objects.get(user=user)
+                profile.no_of_logins += 1
+                profile.save()
+            except Profile.DoesNotExist:
+                pass
             return redirect('user_profile', username=username)
         else:
             messages.error(request, 'Invalid username or password')

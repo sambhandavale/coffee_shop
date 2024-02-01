@@ -25,26 +25,48 @@ def user_profile(request, username):
 
 
 def create_profile(request):
+    user = request.user
+    try:
+        profile = Profile.objects.get(user=user)
+        no_of_logins = profile.no_of_logins
+    except Profile.DoesNotExist:
+        profile = None
+        no_of_logins = 0
+    context = {
+        'no_of_logins': no_of_logins
+    }
     if request.method == 'POST':
-        user = request.user
-        if 'profile-image' in request.FILES:
-            image = request.FILES['profile-image']
-            profile = Profile(user=user, image=image)
-            profile.save()
+        image = request.FILES.get('profile-image')
+        first_name = request.POST.get('first-name')
+        last_name = request.POST.get('last-name')
+        email = request.POST.get('email')
+        if no_of_logins == 0:
+            if image and first_name and last_name and email:
+                user.first_name = first_name
+                user.last_name = last_name
+                user.email = email
+                user.save()
+
+                profile = Profile.objects.create(user=user, image=image, no_of_logins=1)
+                messages.success(request, 'Profile created successfully!')
+                return redirect('user_profile', username=user.username)
+            else:
+                messages.error(request, 'Please fill all fields.')
+                return redirect('create_profile')
         else:
-            messages.error(request, 'Please upload a profile image.')
-            return redirect('create_profile')
+            if image:
+                profile.image = image
 
-        first_name = request.POST['first-name']
-        last_name = request.POST['last-name']
-        email = request.POST['email']
+            if first_name:
+                user.first_name = first_name
+            if last_name:
+                user.last_name = last_name
+            if email:
+                user.email = email
 
-        user.first_name = first_name
-        user.last_name = last_name
-        user.email = email
-        user.save()
+            user.save()
+            profile.save()
+            messages.success(request, 'Profile updated successfully!')
+            return redirect('user_profile', username=user.username)
 
-        messages.success(request, 'Profile created successfully!')
-        return redirect('user_profile', username=user.username)
-
-    return render(request, 'users/create_profile.html')
+    return render(request, 'users/create_profile.html', context)
