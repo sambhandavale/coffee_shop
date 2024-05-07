@@ -22,7 +22,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/" class="home tab"> 
+                    <a href="{% url 'web-home' %}" class="home tab">
                         Home
                     </a>
                 </li>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/blog/" class="blog tab">
+                    <a href="{% url 'blog-home' %}" class="blog tab">
                         Reviews
                     </a>
                 </li>
