@@ -11,6 +11,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('profile/', include('users.urls')),
     path('logout/', auth_views.LogoutView.as_view(template_name='login/logout.html'), name='logout'),
+    path('drinks/',include('drinks.urls')),
 ]
 
 if settings.DEBUG:
